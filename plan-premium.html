@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VetLux — Medicina Veterinaria de Excelencia | Córdoba</title>
+<meta name="description" content="VetLux — La clínica veterinaria premium de Córdoba. Medicina preventiva, cirugía de alta complejidad, turnos online 24/7. Experiencia de lujo para tu mascota.">
+<meta property="og:title" content="VetLux Veterinaria · Córdoba">
+<meta property="og:description" content="Medicina veterinaria de excelencia. Turnos online, blog especializado e integración con Instagram.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark: #0d0d0d;
+    --dark2: #161616;
+    --dark3: #1f1f1f;
+    --gold: #c9a84c;
+    --gold-light: #e2c87a;
+    --gold-pale: rgba(201,168,76,0.08);
+    --white: #ffffff;
+    --off-white: #f5f0e8;
+    --gray: #9ca3af;
+    --gray2: #6b7280;
+    --border: rgba(255,255,255,0.07);
+    --border-gold: rgba(201,168,76,0.2);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--dark);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--dark); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 300;
+    padding: 0 6%;
+    height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(13,13,13,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .logo-emblem {
+    width: 40px; height: 40px;
+    border: 1.5px solid var(--gold);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    background: var(--gold-pale);
+  }
+
+  .logo-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.05em;
+  }
+
+  .logo-name span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-book {
+    background: var(--gold);
+    color: var(--dark) !important;
+    font-weight: 600 !important;
+    padding: 10px 22px;
+    border-radius: 50px;
+    transition: background 0.2s, transform 0.2s !important;
+  }
+
+  .nav-book:hover {
+    background: var(--gold-light) !important;
+    transform: translateY(-1px);
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 6% 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-noise {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    pointer-events: none;
+  }
+
+  .hero-content { position: relative; z-index: 1; max-width: 800px; }
+
+  .hero-superscript {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--border-gold);
+    border-radius: 50px;
+    padding: 6px 18px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    background: var(--gold-pale);
+  }
+
+  .hero-dot {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 700;
+    line-height: 1.0;
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+  }
+
+  .hero h1 em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--gray);
+    line-height: 1.75;
+    max-width: 580px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold);
+    color: var(--dark);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 14px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-gold:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(201,168,76,0.25);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--border-gold);
+    color: var(--white);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+    padding: 14px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.2s;
+    background: transparent;
+  }
+
+  .btn-outline:hover {
+    background: var(--gold-pale);
+    border-color: var(--gold);
+  }
+
+  .hero-metrics {
+    display: flex;
+    gap: 48px;
+    justify-content: center;
+    margin-top: 64px;
+    padding-top: 48px;
+    border-top: 1px solid var(--border);
+  }
+
+  .metric-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .metric-label {
+    font-size: 0.78rem;
+    color: var(--gray2);
+    letter-spacing: 0.05em;
+    margin-top: 6px;
+  }
+
+  /* SERVICES */
+  #servicios {
+    padding: 120px 6%;
+    background: var(--dark2);
+  }
+
+  .section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .eyebrow-rule {
+    width: 28px; height: 1px;
+    background: var(--gold);
+  }
+
+  .eyebrow-text {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+
+  .section-desc {
+    color: var(--gray);
+    line-height: 1.75;
+    max-width: 500px;
+    font-size: 0.98rem;
+    font-weight: 300;
+  }
+
+  .services-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: start;
+    margin-top: 64px;
+  }
+
+  .srv-list { display: flex; flex-direction: column; gap: 2px; }
+
+  .srv-item {
+    padding: 18px 20px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .srv-item:hover, .srv-item.active {
+    background: var(--gold-pale);
+    border-color: var(--border-gold);
+  }
+
+  .srv-item.active .srv-item-dot { background: var(--gold); }
+
+  .srv-item-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gray2);
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+
+  .srv-item-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--white);
+  }
+
+  .srv-detail {
+    background: var(--dark3);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px;
+  }
+
+  .srv-detail-icon { font-size: 3rem; margin-bottom: 20px; }
+  .srv-detail-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: var(--white);
+  }
+
+  .srv-detail-desc {
+    color: var(--gray);
+    line-height: 1.8;
+    font-size: 0.98rem;
+    font-weight: 300;
+    margin-bottom: 28px;
+  }
+
+  .srv-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .srv-tag {
+    background: var(--gold-pale);
+    border: 1px solid var(--border-gold);
+    color: var(--gold-light);
+    font-size: 0.78rem;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-weight: 400;
+  }
+
+  /* INSTAGRAM */
+  #instagram {
+    padding: 120px 6%;
+    background: var(--dark);
+  }
+
+  .ig-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 48px;
+  }
+
+  .ig-follow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--border-gold);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--gold);
+    text-decoration: none;
+    transition: all 0.2s;
+    background: var(--gold-pale);
+  }
+
+  .ig-follow:hover { background: rgba(201,168,76,0.15); }
+
+  .ig-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 6px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .ig-post {
+    aspect-ratio: 1;
+    background: var(--dark3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.25s;
+  }
+
+  .ig-post:hover { transform: scale(1.02); z-index: 2; }
+
+  .ig-post::after {
+    content: '❤️ Ver';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: 'Outfit', sans-serif;
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+
+  .ig-post:hover::after { opacity: 1; }
+
+  .ig-p1 { background: #2a3320; }
+  .ig-p2 { background: #2e2420; }
+  .ig-p3 { background: #1e2433; }
+  .ig-p4 { background: #2e1e33; }
+  .ig-p5 { background: #33281e; }
+  .ig-p6 { background: #1e332b; }
+  .ig-p7 { background: #33201e; }
+  .ig-p8 { background: #1e2a33; }
+  .ig-p9 { background: #302e1e; }
+  .ig-p10 { background: #1e3320; }
+  .ig-p11 { background: #33251e; }
+  .ig-p12 { background: #231e33; }
+
+  /* BLOG */
+  #blog {
+    padding: 120px 6%;
+    background: var(--dark2);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 24px;
+    margin-top: 64px;
+  }
+
+  .blog-card {
+    background: var(--dark3);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .blog-card:hover {
+    border-color: var(--border-gold);
+    transform: translateY(-4px);
+  }
+
+  .blog-thumb {
+    height: 200px;
+    background: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+  }
+
+  .blog-card.featured .blog-thumb { height: 280px; }
+
+  .blog-body { padding: 24px; }
+
+  .blog-cat {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .blog-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .blog-card.featured .blog-title { font-size: 1.6rem; }
+
+  .blog-excerpt {
+    font-size: 0.85rem;
+    color: var(--gray);
+    line-height: 1.6;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+
+  .blog-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    color: var(--gray2);
+  }
+
+  .blog-meta::before {
+    content: '';
+    width: 20px; height: 1px;
+    background: var(--border-gold);
+  }
+
+  /* TURNOS */
+  #turnos {
+    padding: 120px 6%;
+    background: var(--dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #turnos::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .turnos-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    margin-top: 64px;
+  }
+
+  .turnos-info { position: relative; }
+
+  .turno-feature {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding: 20px;
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    transition: border-color 0.2s;
+  }
+
+  .turno-feature:hover { border-color: var(--border-gold); }
+
+  .turno-icon {
+    width: 42px; height: 42px;
+    background: var(--gold-pale);
+    border: 1px solid var(--border-gold);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .turno-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .turno-desc {
+    font-size: 0.84rem;
+    color: var(--gray);
+    line-height: 1.55;
+    font-weight: 300;
+  }
+
+  /* FORM */
+  .turno-form {
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 40px;
+  }
+
+  .form-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .form-sub {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-bottom: 28px;
+  }
+
+  .form-group { margin-bottom: 18px; }
+
+  .form-label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--gray);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .form-input, .form-select, .form-textarea {
+    width: 100%;
+    background: var(--dark3);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    color: var(--white);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    -webkit-appearance: none;
+  }
+
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
+  }
+
+  .form-select option { background: var(--dark3); }
+  .form-textarea { resize: vertical; min-height: 90px; }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .btn-submit {
+    width: 100%;
+    background: var(--gold);
+    color: var(--dark);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 15px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 8px;
+    letter-spacing: 0.03em;
+  }
+
+  .btn-submit:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(201,168,76,0.25);
+  }
+
+  /* GOOGLE MY BUSINESS */
+  #gmb {
+    padding: 80px 6%;
+    background: var(--dark2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .gmb-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .gmb-stars {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .gmb-rating {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .gmb-info h4 {
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gray);
+    margin-bottom: 4px;
+  }
+
+  .gmb-info .stars {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+
+  .gmb-info .reviews {
+    font-size: 0.82rem;
+    color: var(--gray2);
+  }
+
+  .gmb-badges {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .gmb-badge {
+    background: var(--dark3);
+    border: 1px solid var(--border-gold);
+    border-radius: 12px;
+    padding: 14px 20px;
+    text-align: center;
+  }
+
+  .gmb-badge-icon { font-size: 1.5rem; margin-bottom: 6px; }
+  .gmb-badge-label { font-size: 0.78rem; color: var(--gray); }
+
+  .gmb-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold-pale);
+    border: 1px solid var(--border-gold);
+    color: var(--gold);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 12px 22px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .gmb-link:hover { background: rgba(201,168,76,0.15); }
+
+  /* CONTACTO */
+  #contacto {
+    padding: 120px 6%;
+    background: var(--dark);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 64px;
+  }
+
+  .contact-tile {
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: center;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: block;
+  }
+
+  .contact-tile:hover {
+    border-color: var(--border-gold);
+    transform: translateY(-3px);
+  }
+
+  .contact-tile-icon { font-size: 1.8rem; margin-bottom: 12px; }
+  .contact-tile-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+  .contact-tile-value {
+    font-size: 0.88rem;
+    color: var(--white);
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .contact-support {
+    margin-top: 40px;
+    background: var(--gold-pale);
+    border: 1px solid var(--border-gold);
+    border-radius: 20px;
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .support-text h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .support-text p {
+    font-size: 0.88rem;
+    color: var(--gray);
+    font-weight: 300;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #080808;
+    border-top: 1px solid var(--border);
+    padding: 40px 6%;
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-copy {
+    font-size: 0.82rem;
+    color: var(--gray2);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .footer-links a {
+    font-size: 0.8rem;
+    color: var(--gray2);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.2);
+  }
+
+  .seo-chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .seo-chip {
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: 2px 10px;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.25);
+  }
+
+  /* PLAN BADGE */
+  .plan-badge {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--dark);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    z-index: 999;
+    box-shadow: 0 4px 20px rgba(201,168,76,0.3);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-content > * {
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-content > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-content > *:nth-child(4) { animation-delay: 0.4s; }
+  .hero-content > *:nth-child(5) { animation-delay: 0.5s; }
+
+  /* MOBILE */
+  @media (max-width: 1024px) {
+    .ig-grid { grid-template-columns: repeat(4, 1fr); }
+    .ig-post:nth-child(n+9) { display: none; }
+    .blog-grid { grid-template-columns: 1fr 1fr; }
+    .blog-card.featured { grid-column: span 2; }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .services-layout { grid-template-columns: 1fr; }
+    .ig-grid { grid-template-columns: repeat(3, 1fr); }
+    .ig-post:nth-child(n+7) { display: none; }
+    .blog-grid { grid-template-columns: 1fr; }
+    .blog-card.featured { grid-column: span 1; }
+    .turnos-layout { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr 1fr; }
+    .hero-metrics { gap: 24px; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="plan-badge">◆ Plan Premium — Demo</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#inicio" class="nav-logo">
+    <div class="logo-emblem">🐾</div>
+    <span class="logo-name">Vet<span>Lux</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#instagram">Instagram</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#turnos">Turnos</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="#turnos" class="nav-book">Reservar turno</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="inicio" class="hero">
+  <div class="hero-noise"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-superscript">
+      <div class="hero-dot"></div>
+      Atención veterinaria de excelencia
+    </div>
+    <h1>Medicina veterinaria<br><em>sin compromisos</em></h1>
+    <p class="hero-sub">VetLux es la clínica veterinaria premium de Córdoba. Combinamos tecnología de vanguardia, especialistas certificados y una experiencia pensada para vos y tu compañero.</p>
+    <div class="hero-ctas">
+      <a href="#turnos" class="btn-gold">Reservar turno online →</a>
+      <a href="https://wa.me/5491112345678" class="btn-outline" target="_blank">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+    <div class="hero-metrics">
+      <div>
+        <div class="metric-num">+1.200</div>
+        <div class="metric-label">Pacientes activos</div>
+      </div>
+      <div>
+        <div class="metric-num">15 años</div>
+        <div class="metric-label">De trayectoria</div>
+      </div>
+      <div>
+        <div class="metric-num">4.9 ★</div>
+        <div class="metric-label">En Google Maps</div>
+      </div>
+      <div>
+        <div class="metric-num">8</div>
+        <div class="metric-label">Especialidades</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="section-eyebrow">
+    <div class="eyebrow-rule"></div>
+    <span class="eyebrow-text">Especialidades</span>
+  </div>
+  <h2 class="section-title">Atención completa para cada mascota</h2>
+  <p class="section-desc">Desde medicina preventiva hasta cirugías de alta complejidad, nuestro equipo está capacitado para cada caso.</p>
+
+  <div class="services-layout">
+    <div class="srv-list">
+      <div class="srv-item active" onclick="selectService(this, 0)">
+        <div class="srv-item-dot"></div>
+        <span class="srv-item-name">Medicina Preventiva</span>
+      </div>
+      <div class="srv-item" onclick="selectService(this, 1)">
+        <div class="srv-item-dot"></div>
+        <span class="srv-item-name">Cirugía</span>
+      </div>
+      <div class="srv-item" onclick="selectService(this, 2)">
+        <div class="srv-item-dot"></div>
+        <span class="srv-item-name">Diagnóstico por Imagen</span>
+      </div>
+      <div class="srv-item" onclick="selectService(this, 3)">
+        <div class="srv-item-dot"></div>
+        <span class="srv-item-name">Cardiología</span>
+      </div>
+      <div class="srv-item" onclick="selectService(this, 4)">
+        <div class="srv-item-dot"></div>
+        <span class="srv-item-name">Dermatología</span>
+      </div>
+      <div class="srv-item" onclick="selectService(this, 5)">
+        <div class="srv-item-dot"></div>
+        <span class="srv-item-name">Odontología</span>
+      </div>
+      <div class="srv-item" onclick="selectService(this, 6)">
+        <div class="srv-item-dot"></div>
+        <span class="srv-item-name">Rehabilitación</span>
+      </div>
+      <div class="srv-item" onclick="selectService(this, 7)">
+        <div class="srv-item-dot"></div>
+        <span class="srv-item-name">Peluquería Premium</span>
+      </div>
+    </div>
+
+    <div class="srv-detail" id="srvDetail">
+      <div class="srv-detail-icon">🩺</div>
+      <div class="srv-detail-title">Medicina Preventiva</div>
+      <p class="srv-detail-desc">Un programa completo de salud preventiva para que tu mascota viva más y mejor. Incluye revisaciones anuales, planes vacunales personalizados, control de peso, desparasitación y chequeo dental. Todo registrado en la historia clínica digital accesible desde tu celular.</p>
+      <div class="srv-tags">
+        <span class="srv-tag">Historia clínica digital</span>
+        <span class="srv-tag">Vacunación personalizada</span>
+        <span class="srv-tag">Control de peso</span>
+        <span class="srv-tag">Chequeo dental</span>
+        <span class="srv-tag">Antiparasitarios</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section id="instagram">
+  <div class="ig-header">
+    <div>
+      <div class="section-eyebrow">
+        <div class="eyebrow-rule"></div>
+        <span class="eyebrow-text">@vetluxcba</span>
+      </div>
+      <h2 class="section-title">Seguinos en Instagram</h2>
+    </div>
+    <a href="https://instagram.com" class="ig-follow" target="_blank">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      Seguir · 2.4k seguidores
+    </a>
+  </div>
+
+  <div class="ig-grid">
+    <div class="ig-post ig-p1">🐕</div>
+    <div class="ig-post ig-p2">🐈</div>
+    <div class="ig-post ig-p3">🩺</div>
+    <div class="ig-post ig-p4">✂️</div>
+    <div class="ig-post ig-p5">💉</div>
+    <div class="ig-post ig-p6">🐾</div>
+    <div class="ig-post ig-p7">🏥</div>
+    <div class="ig-post ig-p8">🔬</div>
+    <div class="ig-post ig-p9">🐶</div>
+    <div class="ig-post ig-p10">🐱</div>
+    <div class="ig-post ig-p11">❤️</div>
+    <div class="ig-post ig-p12">🌟</div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="section-eyebrow">
+    <div class="eyebrow-rule"></div>
+    <span class="eyebrow-text">Blog veterinario</span>
+  </div>
+  <h2 class="section-title">Consejos para cuidar mejor a tu mascota</h2>
+  <p class="section-desc">Artículos escritos por nuestro equipo de veterinarios para mantener a tu compañero saludable y feliz.</p>
+
+  <div class="blog-grid">
+    <div class="blog-card featured">
+      <div class="blog-thumb">🐕</div>
+      <div class="blog-body">
+        <div class="blog-cat">Nutrición · 10 min de lectura</div>
+        <div class="blog-title">Guía completa: ¿Qué debe comer tu perro según su edad y raza?</div>
+        <p class="blog-excerpt">Las necesidades nutricionales de los perros varían enormemente según su etapa de vida. Descubrí cómo diseñar una dieta equilibrada para tu mascota.</p>
+        <div class="blog-meta">Dra. Valentina Herrera · 8 Marzo 2025</div>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-thumb">🐈</div>
+      <div class="blog-body">
+        <div class="blog-cat">Salud preventiva</div>
+        <div class="blog-title">Los 5 síntomas que nunca debés ignorar en tu gato</div>
+        <p class="blog-excerpt">Signos de alerta que indican que tu felino necesita atención veterinaria urgente.</p>
+        <div class="blog-meta">Dr. Marcos Leiva · 2 Marzo 2025</div>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-thumb">🦷</div>
+      <div class="blog-body">
+        <div class="blog-cat">Odontología</div>
+        <div class="blog-title">Salud dental en mascotas: por qué importa más de lo que creés</div>
+        <p class="blog-excerpt">La salud bucal afecta el bienestar general de tu mascota. Guía práctica de cuidado dental.</p>
+        <div class="blog-meta">Dra. Lucía Paz · 25 Feb 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TURNOS ONLINE -->
+<section id="turnos">
+  <div class="section-eyebrow">
+    <div class="eyebrow-rule"></div>
+    <span class="eyebrow-text">Reserva online 24/7</span>
+  </div>
+  <h2 class="section-title">Pedí tu turno sin llamar</h2>
+  <p class="section-desc">Reservá en menos de 2 minutos. Confirmación inmediata por WhatsApp y recordatorio 24 hs antes.</p>
+
+  <div class="turnos-layout">
+    <div class="turnos-info">
+      <div class="turno-feature">
+        <div class="turno-icon">⚡</div>
+        <div>
+          <div class="turno-title">Confirmación inmediata</div>
+          <p class="turno-desc">Recibís la confirmación del turno por WhatsApp en menos de 5 minutos, incluso fuera del horario de atención.</p>
+        </div>
+      </div>
+      <div class="turno-feature">
+        <div class="turno-icon">🔔</div>
+        <div>
+          <div class="turno-title">Recordatorio automático</div>
+          <p class="turno-desc">Te enviamos un recordatorio 24 horas antes de tu turno para que no se te pase.</p>
+        </div>
+      </div>
+      <div class="turno-feature">
+        <div class="turno-icon">🔄</div>
+        <div>
+          <div class="turno-title">Reprogramación fácil</div>
+          <p class="turno-desc">Podés reprogramar o cancelar tu turno con hasta 2 horas de anticipación, sin llamadas ni esperas.</p>
+        </div>
+      </div>
+      <div class="turno-feature">
+        <div class="turno-icon">📋</div>
+        <div>
+          <div class="turno-title">Historia clínica digital</div>
+          <p class="turno-desc">Accedé al historial completo de tu mascota desde tu celular antes y después de cada consulta.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="turno-form">
+      <div class="form-title">Reservar turno</div>
+      <p class="form-sub">Completá los datos y te contactamos en minutos</p>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Tu nombre</label>
+          <input class="form-input" type="text" placeholder="Ej: Ana García">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Teléfono / WhatsApp</label>
+          <input class="form-input" type="tel" placeholder="(351) 000-0000">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Nombre de la mascota</label>
+          <input class="form-input" type="text" placeholder="Ej: Lola">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Especie</label>
+          <select class="form-select">
+            <option value="">Seleccioná</option>
+            <option>Perro</option>
+            <option>Gato</option>
+            <option>Ave</option>
+            <option>Otro</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Tipo de consulta</label>
+        <select class="form-select">
+          <option value="">Seleccioná el tipo de consulta</option>
+          <option>Consulta general</option>
+          <option>Vacunación</option>
+          <option>Cirugía</option>
+          <option>Control post-operatorio</option>
+          <option>Dermatología</option>
+          <option>Cardiología</option>
+          <option>Odontología</option>
+          <option>Urgencia</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Fecha preferida</label>
+          <input class="form-input" type="date">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Horario preferido</label>
+          <select class="form-select">
+            <option value="">Cualquier horario</option>
+            <option>Mañana (8–12 hs)</option>
+            <option>Mediodía (12–15 hs)</option>
+            <option>Tarde (15–20 hs)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Motivo / síntomas (opcional)</label>
+        <textarea class="form-textarea" placeholder="Contanos brevemente por qué traés a tu mascota..."></textarea>
+      </div>
+
+      <button class="btn-submit" onclick="this.textContent='✓ Solicitud enviada'">Solicitar turno →</button>
+    </div>
+  </div>
+</section>
+
+<!-- GOOGLE MY BUSINESS -->
+<section id="gmb">
+  <div class="gmb-inner">
+    <div class="gmb-stars">
+      <div class="gmb-rating">4.9</div>
+      <div class="gmb-info">
+        <h4>Google My Business</h4>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <div class="reviews">+580 reseñas verificadas</div>
+      </div>
+    </div>
+    <div class="gmb-badges">
+      <div class="gmb-badge">
+        <div class="gmb-badge-icon">🏆</div>
+        <div class="gmb-badge-label">Negocio<br>verificado</div>
+      </div>
+      <div class="gmb-badge">
+        <div class="gmb-badge-icon">📍</div>
+        <div class="gmb-badge-label">Ubicación<br>confirmada</div>
+      </div>
+      <div class="gmb-badge">
+        <div class="gmb-badge-icon">📸</div>
+        <div class="gmb-badge-label">+80 fotos<br>del lugar</div>
+      </div>
+    </div>
+    <a href="https://maps.google.com" class="gmb-link" target="_blank">
+      Ver en Google Maps →
+    </a>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="section-eyebrow">
+    <div class="eyebrow-rule"></div>
+    <span class="eyebrow-text">Contacto</span>
+  </div>
+  <h2 class="section-title">Estamos para vos</h2>
+  <p class="section-desc">Múltiples canales de comunicación para que puedas contactarnos cuando lo necesitás.</p>
+
+  <div class="contact-grid">
+    <a href="https://wa.me/5491112345678" class="contact-tile" target="_blank">
+      <div class="contact-tile-icon">💬</div>
+      <div class="contact-tile-label">WhatsApp</div>
+      <div class="contact-tile-value">+54 9 351 000-0000</div>
+    </a>
+    <a href="tel:+5435100000" class="contact-tile">
+      <div class="contact-tile-icon">📞</div>
+      <div class="contact-tile-label">Teléfono</div>
+      <div class="contact-tile-value">(0351) 456-7890</div>
+    </a>
+    <a href="mailto:hola@vetlux.com.ar" class="contact-tile">
+      <div class="contact-tile-icon">✉️</div>
+      <div class="contact-tile-label">Email</div>
+      <div class="contact-tile-value">hola@vetlux.com.ar</div>
+    </a>
+    <div class="contact-tile">
+      <div class="contact-tile-icon">📍</div>
+      <div class="contact-tile-label">Dirección</div>
+      <div class="contact-tile-value">Av. Vélez Sársfield 500<br>Córdoba Capital</div>
+    </div>
+  </div>
+
+  <div class="contact-support">
+    <div class="support-text">
+      <h4>🛡️ Soporte técnico incluido por 3 meses</h4>
+      <p>Tu sitio web tendrá soporte técnico dedicado durante los primeros 3 meses post-lanzamiento. Cualquier problema, lo resolvemos.</p>
+    </div>
+    <a href="#turnos" class="btn-gold">Comenzar ahora</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="logo-name" style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; margin-bottom: 6px;">Vet<span style="color: var(--gold)">Lux</span></div>
+      <div class="footer-copy">Av. Vélez Sársfield 500, Córdoba · © 2025 VetLux Clínica Veterinaria</div>
+    </div>
+    <div class="footer-links">
+      <a href="#">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#blog">Blog</a>
+      <a href="#turnos">Turnos</a>
+      <a href="#">Privacidad</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>SEO optimizado · Google My Business configurado · Hosting incluido</span>
+    <div class="seo-chips">
+      <span class="seo-chip">veterinaria córdoba</span>
+      <span class="seo-chip">clínica veterinaria</span>
+      <span class="seo-chip">turnos veterinario</span>
+      <span class="seo-chip">veterinaria 24hs</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const services = [
+  { icon: '🩺', title: 'Medicina Preventiva', desc: 'Un programa completo de salud preventiva para que tu mascota viva más y mejor. Incluye revisaciones anuales, planes vacunales personalizados, control de peso, desparasitación y chequeo dental. Todo registrado en la historia clínica digital accesible desde tu celular.', tags: ['Historia clínica digital', 'Vacunación personalizada', 'Control de peso', 'Chequeo dental', 'Antiparasitarios'] },
+  { icon: '🏥', title: 'Cirugía', desc: 'Quirófano de última generación con anestesia inhalatoria y monitoreo multiparamétrico. Realizamos cirugías electivas y de urgencia: esterilizaciones, ortopedia, cirugías de tejidos blandos, cesáreas y más. Equipo especializado en anestesiología veterinaria.', tags: ['Esterilización', 'Ortopedia', 'Tejidos blandos', 'Monitoreo anestésico', 'Cirugía laparoscópica'] },
+  { icon: '📡', title: 'Diagnóstico por Imagen', desc: 'Ecografía abdominal y cardíaca, radiología digital y telemedicina con especialistas de referencia. Resultados en el momento para tomar decisiones rápidas. Disponible para pacientes propios y de otras clínicas.', tags: ['Ecografía', 'Radiología digital', 'Telemedicina', 'Ecocardiograma'] },
+  { icon: '❤️', title: 'Cardiología', desc: 'Evaluación cardiológica completa con electrocardiograma, ecocardiograma y Holter. Seguimiento de pacientes cardíacos y ajuste de medicación. Coordinamos con cardiólogos especializados para casos de alta complejidad.', tags: ['ECG', 'Ecocardiograma', 'Holter', 'Seguimiento crónico'] },
+  { icon: '🌿', title: 'Dermatología', desc: 'Diagnóstico y tratamiento de enfermedades de la piel, alergias y problemas del pelo. Citología, cultivos fúngicos, pruebas de alergia intradérmica y planes de inmunoterapia personalizados.', tags: ['Alergias', 'Citología', 'Inmunoterapia', 'Infecciones cutáneas'] },
+  { icon: '🦷', title: 'Odontología', desc: 'Profilaxis dental bajo anestesia, extracción de piezas dañadas, ortodoncia básica y tratamiento de enfermedad periodontal. Radiografía dental digital para diagnóstico preciso. Crucial para la salud general de tu mascota.', tags: ['Profilaxis', 'Extracción', 'Radiografía dental', 'Periodoncia'] },
+  { icon: '🏃', title: 'Rehabilitación', desc: 'Fisioterapia y rehabilitación post-quirúrgica y para pacientes crónicos. Hidroterapia, láser de baja potencia, masajes terapéuticos y ejercicios de fortalecimiento. Ideal para mascotas con problemas neurológicos o articulares.', tags: ['Fisioterapia', 'Hidroterapia', 'Láser', 'Neurología'] },
+  { icon: '✂️', title: 'Peluquería Premium', desc: 'Servicio de grooming exclusivo con productos de primera línea. Baño con shampoo hipoalergénico, acondicionador, corte de raza, arreglo de uñas, limpieza de oídos y perfumado. Ambiente tranquilo y personalizado para cada mascota.', tags: ['Baño medicado', 'Corte de raza', 'Hypoalergénico', 'Ambiente calmo'] },
+];
+
+function selectService(el, idx) {
+  document.querySelectorAll('.srv-item').forEach(i => i.classList.remove('active'));
+  el.classList.add('active');
+  const s = services[idx];
+  const detail = document.getElementById('srvDetail');
+  detail.innerHTML = `
+    <div class="srv-detail-icon">${s.icon}</div>
+    <div class="srv-detail-title">${s.title}</div>
+    <p class="srv-detail-desc">${s.desc}</p>
+    <div class="srv-tags">${s.tags.map(t => `<span class="srv-tag">${t}</span>`).join('')}</div>
+  `;
+}
+</script>
+</body>
+</html>

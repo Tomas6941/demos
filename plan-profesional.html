@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clínica Veterinaria Pampas | Córdoba — Plan Profesional</title>
+<meta name="description" content="Clínica Veterinaria Pampas en Córdoba. Consultas, vacunación, cirugía, peluquería y urgencias. Turnos por WhatsApp.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sand: #f5ede0;
+    --terracotta: #c97d4e;
+    --terracotta-dark: #a86438;
+    --forest: #2d4a35;
+    --forest-light: #3d6347;
+    --cream: #fdf8f2;
+    --text: #1a1a1a;
+    --gray: #6b7280;
+    --light: #f0e8d8;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    padding: 0 6%;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(253,248,242,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,125,78,0.15);
+    transition: all 0.3s;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-mark {
+    width: 36px; height: 36px;
+    background: var(--forest);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+  }
+
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--forest);
+    line-height: 1.1;
+  }
+
+  .logo-sub {
+    font-size: 0.65rem;
+    font-weight: 400;
+    color: var(--terracotta);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: block;
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-menu a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+
+  .nav-menu a:hover { color: var(--terracotta); }
+
+  .nav-cta {
+    background: var(--terracotta);
+    color: var(--white) !important;
+    padding: 9px 20px;
+    border-radius: 50px;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--terracotta-dark) !important; color: var(--white) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    padding: 120px 6% 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    background: var(--cream);
+    position: relative;
+  }
+
+  .hero-bg-shape {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 55%;
+    height: 100%;
+    background: var(--sand);
+    clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%);
+    z-index: 0;
+  }
+
+  .hero-content { position: relative; z-index: 1; }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .eyebrow-line {
+    width: 32px;
+    height: 2px;
+    background: var(--terracotta);
+  }
+
+  .eyebrow-text {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+    line-height: 1.1;
+    color: var(--forest);
+    margin-bottom: 22px;
+  }
+
+  .hero h1 em {
+    color: var(--terracotta);
+    font-style: italic;
+  }
+
+  .hero-desc {
+    color: var(--gray);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    max-width: 460px;
+    margin-bottom: 36px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--forest);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    box-shadow: 0 4px 16px rgba(45,74,53,0.25);
+  }
+
+  .btn-primary:hover {
+    background: var(--forest-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(45,74,53,0.3);
+  }
+
+  .btn-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #25d366;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+  }
+
+  .btn-wa:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37,211,102,0.4);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(201,125,78,0.2);
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--terracotta);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--gray);
+    margin-top: 4px;
+  }
+
+  /* HERO IMAGE GRID */
+  .hero-visual {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-img-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 12px;
+  }
+
+  .hero-img {
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--light);
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  }
+
+  .hero-img.tall {
+    grid-row: span 2;
+    aspect-ratio: unset;
+    min-height: 340px;
+  }
+
+  .hero-img.accent { background: var(--terracotta); }
+  .hero-img.forest { background: var(--forest); }
+
+  /* SERVICES */
+  #servicios {
+    padding: 100px 6%;
+    background: #fff;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto 64px;
+  }
+
+  .section-tag {
+    display: inline-block;
+    background: var(--light);
+    color: var(--terracotta);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 50px;
+    margin-bottom: 14px;
+  }
+
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    color: var(--forest);
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+
+  .section-header p {
+    color: var(--gray);
+    line-height: 1.7;
+    font-size: 0.98rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .srv {
+    background: var(--cream);
+    border: 1px solid var(--light);
+    border-radius: 20px;
+    padding: 32px 28px;
+    transition: all 0.25s;
+    cursor: default;
+  }
+
+  .srv:hover {
+    background: var(--forest);
+    border-color: var(--forest);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(45,74,53,0.15);
+  }
+
+  .srv:hover .srv-title { color: #fff; }
+  .srv:hover .srv-desc { color: rgba(255,255,255,0.7); }
+  .srv:hover .srv-icon-wrap { background: rgba(255,255,255,0.15); }
+
+  .srv-icon-wrap {
+    width: 54px; height: 54px;
+    background: var(--light);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    transition: background 0.25s;
+  }
+
+  .srv-title {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--forest);
+    margin-bottom: 10px;
+    transition: color 0.25s;
+  }
+
+  .srv-desc {
+    font-size: 0.88rem;
+    color: var(--gray);
+    line-height: 1.65;
+    transition: color 0.25s;
+  }
+
+  /* GALLERY */
+  #galeria {
+    padding: 100px 6%;
+    background: var(--sand);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 200px 200px;
+    gap: 14px;
+    margin-top: 48px;
+  }
+
+  .gallery-item {
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    transition: transform 0.3s;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .gallery-item::after {
+    content: 'Ver foto';
+    position: absolute;
+    inset: 0;
+    background: rgba(45,74,53,0.75);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+
+  .gallery-item:hover::after { opacity: 1; }
+  .gallery-item:hover { transform: scale(1.02); }
+
+  .gallery-item.span2 { grid-column: span 2; }
+  .gallery-item.c1 { background: #dde8da; }
+  .gallery-item.c2 { background: #e8ddd4; }
+  .gallery-item.c3 { background: #d4dde8; }
+  .gallery-item.c4 { background: #e8e4d4; }
+  .gallery-item.c5 { background: #d8e8e0; }
+
+  /* MAPS */
+  #ubicacion {
+    padding: 100px 6%;
+    background: #fff;
+  }
+
+  .map-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 48px;
+    align-items: center;
+    margin-top: 48px;
+  }
+
+  .map-info { display: flex; flex-direction: column; gap: 24px; }
+
+  .map-detail {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .map-icon {
+    width: 44px; height: 44px;
+    background: var(--light);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .map-detail h4 {
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--terracotta);
+    margin-bottom: 4px;
+  }
+
+  .map-detail p {
+    font-size: 0.95rem;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  .map-embed {
+    border-radius: 20px;
+    overflow: hidden;
+    height: 380px;
+    background: var(--sand);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+    font-size: 3rem;
+    color: var(--gray);
+    border: 2px dashed var(--light);
+    position: relative;
+  }
+
+  .map-embed-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--gray);
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .map-overlay-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--forest);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* CONTACTO */
+  #contacto {
+    padding: 100px 6%;
+    background: var(--forest);
+    color: #fff;
+  }
+
+  #contacto .section-tag { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.8); }
+  #contacto .section-header h2 { color: #fff; }
+  #contacto .section-header p { color: rgba(255,255,255,0.65); }
+
+  .contact-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 48px;
+  }
+
+  .contact-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: background 0.25s;
+  }
+
+  .contact-card:hover { background: rgba(255,255,255,0.13); }
+
+  .contact-card-icon { font-size: 2rem; margin-bottom: 14px; }
+
+  .contact-card h3 {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .contact-card p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+
+  .contact-wa-block {
+    text-align: center;
+    margin-top: 48px;
+    padding-top: 48px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .contact-wa-block p {
+    color: rgba(255,255,255,0.6);
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #1a2e20;
+    color: rgba(255,255,255,0.45);
+    padding: 32px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+  }
+
+  footer strong { color: rgba(255,255,255,0.8); }
+
+  .footer-right {
+    display: flex;
+    gap: 20px;
+  }
+
+  .footer-right a {
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: color 0.2s;
+  }
+
+  .footer-right a:hover { color: var(--terracotta); }
+
+  /* PLAN BADGE */
+  .plan-badge {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: var(--terracotta);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-visual { display: none; }
+    .hero-bg-shape { display: none; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .gallery-item.span2 { grid-column: span 1; }
+    .map-layout { grid-template-columns: 1fr; }
+    .contact-cards { grid-template-columns: 1fr; }
+    .nav-menu { display: none; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+
+  @media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="plan-badge">★ Plan Profesional — Demo</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="logo-mark">🐾</div>
+    <div class="logo-text">
+      Clínica Pampas
+      <span class="logo-sub">Veterinaria</span>
+    </div>
+  </div>
+  <ul class="nav-menu">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#ubicacion">Ubicación</a></li>
+    <li><a href="#contacto" class="nav-cta">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="inicio" class="hero">
+  <div class="hero-bg-shape"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Veterinaria de confianza · Córdoba</span>
+    </div>
+    <h1>Salud y bienestar para tu <em>mejor amigo</em></h1>
+    <p class="hero-desc">Más de 10 años cuidando mascotas en Córdoba. Atención personalizada, equipamiento de última generación y un equipo que ama los animales tanto como vos.</p>
+    <div class="hero-actions">
+      <a href="#contacto" class="btn-primary">Pedir turno →</a>
+      <a href="https://wa.me/5491112345678" class="btn-wa" target="_blank">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">+800</div>
+        <div class="stat-label">Pacientes activos</div>
+      </div>
+      <div>
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Años de experiencia</div>
+      </div>
+      <div>
+        <div class="stat-num">4.9★</div>
+        <div class="stat-label">Calificación Google</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-img-grid">
+      <div class="hero-img tall c1">🐕</div>
+      <div class="hero-img c2">🐈</div>
+      <div class="hero-img c3">🩺</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="section-header">
+    <span class="section-tag">Nuestros servicios</span>
+    <h2>Atención integral para tu mascota</h2>
+    <p>Desde controles de rutina hasta cirugías complejas, contamos con todo lo necesario para el bienestar de tu compañero.</p>
+  </div>
+  <div class="services-grid">
+    <div class="srv">
+      <div class="srv-icon-wrap">🩺</div>
+      <div class="srv-title">Consultas & Diagnóstico</div>
+      <p class="srv-desc">Revisaciones completas con historia clínica digital y seguimiento continuo de la salud de tu mascota.</p>
+    </div>
+    <div class="srv">
+      <div class="srv-icon-wrap">💉</div>
+      <div class="srv-title">Vacunación</div>
+      <p class="srv-desc">Plan vacunal oficial con registro digital y recordatorio automático de próximas dosis.</p>
+    </div>
+    <div class="srv">
+      <div class="srv-icon-wrap">🔬</div>
+      <div class="srv-title">Laboratorio Clínico</div>
+      <p class="srv-desc">Análisis de sangre, orina, cultivos y estudios especializados con resultados en el día.</p>
+    </div>
+    <div class="srv">
+      <div class="srv-icon-wrap">🏥</div>
+      <div class="srv-title">Cirugía</div>
+      <p class="srv-desc">Quirófano equipado con monitoreo anestésico completo para cirugías electivas y de urgencia.</p>
+    </div>
+    <div class="srv">
+      <div class="srv-icon-wrap">✂️</div>
+      <div class="srv-title">Peluquería Canina</div>
+      <p class="srv-desc">Baño medicado, corte de raza y arreglo estético para que tu perro luzca impecable.</p>
+    </div>
+    <div class="srv">
+      <div class="srv-icon-wrap">🌙</div>
+      <div class="srv-title">Internación</div>
+      <p class="srv-desc">Área de internación con monitoreo permanente y comunicación constante con los dueños.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section id="galeria">
+  <div class="section-header">
+    <span class="section-tag">Nuestra clínica</span>
+    <h2>Un espacio pensado para ellos</h2>
+    <p>Instalaciones modernas, limpias y diseñadas para que tu mascota se sienta cómoda y segura.</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item span2 c1">🏥</div>
+    <div class="gallery-item c2">🐕</div>
+    <div class="gallery-item c3">🐈</div>
+    <div class="gallery-item c4">🔬</div>
+    <div class="gallery-item c5">🩺</div>
+    <div class="gallery-item span2 c2">✂️</div>
+  </div>
+</section>
+
+<!-- UBICACIÓN CON MAPA -->
+<section id="ubicacion">
+  <div class="section-header" style="text-align:left; margin:0;">
+    <span class="section-tag">Dónde estamos</span>
+    <h2>Fácil de encontrar, cerca de vos</h2>
+    <p>Estamos en el corazón de Nueva Córdoba, con fácil acceso y estacionamiento cercano.</p>
+  </div>
+  <div class="map-layout">
+    <div class="map-info">
+      <div class="map-detail">
+        <div class="map-icon">📍</div>
+        <div>
+          <h4>Dirección</h4>
+          <p>Av. Hipólito Yrigoyen 1450<br>Nueva Córdoba, Córdoba</p>
+        </div>
+      </div>
+      <div class="map-detail">
+        <div class="map-icon">🕐</div>
+        <div>
+          <h4>Horarios de atención</h4>
+          <p>Lunes a Viernes: 8:00 – 20:00 hs<br>Sábados: 9:00 – 14:00 hs<br>Domingos: Urgencias</p>
+        </div>
+      </div>
+      <div class="map-detail">
+        <div class="map-icon">🚗</div>
+        <div>
+          <h4>Cómo llegar</h4>
+          <p>Colectivos: 31, 68, 5A<br>Estacionamiento en calle Deán Funes</p>
+        </div>
+      </div>
+      <div class="map-detail">
+        <div class="map-icon">⭐</div>
+        <div>
+          <h4>Google Maps</h4>
+          <p>4.9 estrellas · +320 reseñas<br>Clínica Pampas Veterinaria</p>
+        </div>
+      </div>
+    </div>
+    <div class="map-embed">
+      <div class="map-overlay-badge">📍 Clínica Pampas Veterinaria</div>
+      🗺️
+      <span class="map-embed-label">Google Maps integrado aquí</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="section-header" style="--c: #fff;">
+    <span class="section-tag">Contacto</span>
+    <h2>¿Cómo podemos ayudarte?</h2>
+    <p>Elegí el canal que más te convenga. Siempre hay alguien del equipo disponible para atenderte.</p>
+  </div>
+  <div class="contact-cards">
+    <div class="contact-card">
+      <div class="contact-card-icon">📞</div>
+      <h3>Teléfono</h3>
+      <p>(0351) 456-7890<br>Lunes a Viernes 8 – 20 hs</p>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card-icon">✉️</div>
+      <h3>Email</h3>
+      <p>info@clinicapampas.com.ar<br>Respondemos en menos de 24 hs</p>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card-icon">📍</div>
+      <h3>Visita presencial</h3>
+      <p>Av. H. Yrigoyen 1450<br>Nueva Córdoba, Córdoba</p>
+    </div>
+  </div>
+  <div class="contact-wa-block">
+    <p>La forma más rápida de obtener un turno es por WhatsApp — respondemos en minutos</p>
+    <a href="https://wa.me/5491112345678" class="btn-wa" target="_blank">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Escribinos ahora por WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <strong>Clínica Pampas Veterinaria</strong> · Av. H. Yrigoyen 1450, Córdoba<br>
+    © 2025 · Todos los derechos reservados
+  </div>
+  <div class="footer-right">
+    <a href="#">Política de privacidad</a>
+    <a href="#">Sitemap</a>
+    <a href="#">Términos</a>
+  </div>
+</footer>
+
+</body>
+</html>
